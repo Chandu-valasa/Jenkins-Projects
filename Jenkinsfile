@@ -10,17 +10,14 @@ pipeline {
         }
         stage(build) {
             steps {
-                sh'docker build -t chandu .'
+                sh'docker build -t shekar:1 .'
             }
         }
         stage(pushimage) {
             steps {
-                withCredentials([usernamePassword(credentialsId:"Docker",passwordVariable:"dockerpass",usernameVariable:"dockeruser")]) {
-                sh 'docker login -u ${dockeruser} -p ${dockerpass}'
-                sh 'docker tag chandu ${dockeruser}/chandu'
-                sh 'docker push ${dockeruser}/chandu'
-               }
-                
+                script {
+                    dockercred("Docker","dockerpass","dockeruser","shekar","1")
+                }
             }
         }
     }
