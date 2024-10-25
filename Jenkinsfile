@@ -10,12 +10,12 @@ pipeline{
         stage(build) {
             steps {
                 docker build -t chandu .
-            }           
+            }
         }
-        stage(build) {
+        stage(test) {
             steps {
                 sh 'echo hello world'
-            }           
+            }
         }
     }
 
