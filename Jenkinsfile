@@ -7,7 +7,12 @@ pipeline{
                 git url:'https://github.com/Chandu-valasa/django-notes-app.git', branch:'main'
             }
         }
-        stage(build){
+        stage(build) {
+            steps {
+                docker build -t chandu .
+            }           
+        }
+        stage(build) {
             steps {
                 sh 'echo hello world'
             }           
