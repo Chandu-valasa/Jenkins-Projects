@@ -16,7 +16,7 @@ pipeline {
         stage(pushimage) {
             steps {
                 script {
-                   sh 'dockercred("Docker","dockerpass","dockeruser","shekar","1")'
+                   dockercred("Docker","dockerpass","dockeruser","shekar","1")
                 }
             }
         }
