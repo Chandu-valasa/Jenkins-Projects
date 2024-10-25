@@ -13,9 +13,14 @@ pipeline {
                 sh'docker build -t chandu .'
             }
         }
-        stage(test) {
+        stage(pushimage) {
             steps {
-                sh 'echo hello world'
+                withCredentials([usernamePassword(credentialsId:"Docker",passwordVaraible:"dockerpass",usernameVariable:"dockeruser")]) {
+                sh 'docker login -u ${env.dockeruser} -p ${env.dockerpass}'
+                sh 'docker tag chandu ${dockeruser}/chandu'
+                sh 'docker push ${dockeruser}/chandu'
+               }
+                
             }
         }
     }
