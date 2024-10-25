@@ -1,4 +1,5 @@
-pipeline{
+/* groovylint-disable-next-line NglParseError */
+pipeline {
     agent {label 'node01'}
 
     stages {
@@ -9,7 +10,7 @@ pipeline{
         }
         stage(build) {
             steps {
-                docker build -t chandu .
+                sh'docker build -t chandu .'
             }
         }
         stage(test) {
@@ -18,13 +19,4 @@ pipeline{
             }
         }
     }
-
-
-
-
-
-
-
-
-
 }
