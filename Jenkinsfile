@@ -1,6 +1,6 @@
 /* groovylint-disable-next-line NglParseError */
 /* groovylint-disable-next-line CompileStatic */
-@Library[shared] _
+@Library('my-shared-library') _
 pipeline {
     agent {label 'node01'}
 
