@@ -12,13 +12,13 @@ pipeline {
         }
         stage(build) {
             steps {
-                sh'docker build -t shekar:1 .'
+                sh'docker build -t shekar .'
             }
         }
         stage(pushimage) {
             steps {
                 script {
-                    dockercred('Docker', 'dockerpass', 'dockeruser', 'shekar', '1')
+                    dockercred('Docker', 'dockerpass', 'dockeruser', 'shekar')
                 }
             }
         }
