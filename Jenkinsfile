@@ -13,7 +13,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    dockerb(chandu2305, sample1, latest)
+                    dockerb("chandu2305", "sample1", "latest")
                 }
             }
         }
