@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {  
-                git (url:"https://github.com/Chandu-valasa/django-notes-app.git", branch:"main")
+                gitclone("https://github.com/Chandu-valasa/django-notes-app.git", "main")
             }
         }
         stage('build') {
