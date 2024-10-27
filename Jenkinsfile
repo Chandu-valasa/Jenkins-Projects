@@ -5,19 +5,19 @@ pipeline {
     agent {label 'node01'}
 
     stages {
-        stage(Checkout) {
+        stage('Checkout') {
             steps {  
                 git url:"https://github.com/Chandu-valasa/django-notes-app.git", branch:"main"
             }
         }
-        stage(build) {
+        stage('build') {
             steps {
                 script {
                     dockerb('chandu2305','sample1','latest')
                 }
             }
         }
-        stage(pushimage) {
+        stage('pushimage') {
             steps {
                 script {
                     dockercred('chandu2305','sample1','latest')
