@@ -20,7 +20,7 @@ pipeline {
         stage('pushimage') {
             steps {
                 script {
-                    dockercred('chandu2305','sample1','latest')
+                    dockercred("chandu2305","sample1","latest")
                 }
             }
         }
