@@ -8,7 +8,7 @@ pipeline {
         stage(Checkout) {
             steps {
                 script {
-                checkout('https://github.com/Chandu-valasa/django-notes-app.git','main')
+                checkout("https://github.com/Chandu-valasa/django-notes-app.git", "main")
                 }
             }
         }
