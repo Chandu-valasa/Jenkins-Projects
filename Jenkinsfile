@@ -7,18 +7,22 @@ pipeline {
     stages {
         stage(Checkout) {
             steps {
-                git url:'https://github.com/Chandu-valasa/django-notes-app.git', branch:'main'
+                script {
+                git('https://github.com/Chandu-valasa/django-notes-app.git','main')
+                }
             }
         }
         stage(build) {
             steps {
-                sh'docker build -t shekar:latest .'
+                script {
+                    dockerb('chandu2305','sample1','latest')
+                }
             }
         }
         stage(pushimage) {
             steps {
                 script {
-                    dockercred('Docker', 'dockerpass', 'dockeruser')
+                    dockercred('chandu2305','sample1','latest')
                 }
             }
         }
